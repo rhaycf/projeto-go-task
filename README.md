@@ -1,59 +1,44 @@
-# ProjetoGoTask
+# GoTask
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+Aplicação web para gerenciar tarefas, desenvolvida com Angular 19. Permite criar, editar e organizar tarefas por status, além de registrar comentários em cada tarefa.
 
-## Development server
+<img width="1279" height="817" alt="image" src="https://github.com/user-attachments/assets/4a26a1e5-1887-4d19-9962-5dea0e695e96" />
 
-To start a local development server, run:
+## Tecnologias
+
+- [Angular](https://angular.dev) 19 (componentes standalone)
+- TypeScript
+- [Tailwind CSS](https://tailwindcss.com)
+- [Angular CDK](https://material.angular.io/cdk) (Dialog)
+- Reactive Forms
+- RxJS
+
+## Funcionalidades
+
+- Organização de tarefas por status:
+  - **TODO:** A fazer
+  - **DOING:** Em andamento
+  - **DONE:** Concluídas
+- Criação e edição de tarefas.
+- Adição de comentários às tarefas.
+- Persistência de tarefas no LocalStorage.
+- Recuperação dos dados armazenados no navegador.
+
+## Como rodar
+
+**Pré-requisitos:** Node.js e npm.
 
 ```bash
+git clone https://github.com/rhaycf/projeto-go-task.git
+cd projeto-go-task
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Acesse `http://localhost:4200/`.
 
-## Code scaffolding
+## Decisões técnicas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Service para abrir os modais:** centraliza a responsabilidade de abrir os modais, mantendo essa lógica fora dos componentes.
+- **Modal reutilizável para criação e edição:** utiliza o mesmo componente para as duas operações, recebendo o modo de abertura e os valores iniciais por meio de data.
+- **LocalStorage:** o service centraliza a persistência dos dados, salvando as alterações nas tarefas e recuperando as informações armazenadas ao iniciar a aplicação.
